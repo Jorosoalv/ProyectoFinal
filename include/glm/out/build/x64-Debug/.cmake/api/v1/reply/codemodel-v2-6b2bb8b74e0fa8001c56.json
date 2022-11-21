@@ -1,0 +1,38 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"projectIndex" : 0,
+					"source" : "."
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Project"
+				}
+			],
+			"targets" : []
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/juani/OneDrive/Documentos/Visual Studio 2019/Proyects/Lab_Computacion/Lab_Computacion/include/glm/out/build/x64-Debug",
+		"source" : "C:/Users/juani/OneDrive/Documentos/Visual Studio 2019/Proyects/Lab_Computacion/Lab_Computacion/include/glm"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 2
+	}
+}
