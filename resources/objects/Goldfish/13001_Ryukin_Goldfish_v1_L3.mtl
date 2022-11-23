@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
 # File Created: 04.01.2012 11:30:38
 
@@ -14,3 +15,21 @@ newmtl Ryukin_Goldfish
 	Ke 0.0000 0.0000 0.0000
 	map_Ka 13001_Ryukin_Goldfish_diff.jpg
 	map_Kd 13001_Ryukin_Goldfish_diff.jpg
+=======
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 04.01.2012 11:30:38
+
+newmtl Ryukin_Goldfish
+	Ns 42.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.5700 0.4359 0.1498
+	Ke 0.0000 0.0000 0.0000
+	map_Ka 13001_Ryukin_Goldfish_diff.jpg
+	map_Kd 13001_Ryukin_Goldfish_diff.jpg
+>>>>>>> d020486f981a410e87f5e940742a76b1dc7b3e2b
