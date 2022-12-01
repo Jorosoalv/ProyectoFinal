@@ -1,0 +1,47 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 25.11.2022 16:14:20
+
+newmtl tree_stem1
+	Ns 26.5805
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.0455 0.0455 0.0455
+	Ke 0.0000 0.0000 0.0000
+	map_Ka tree_stem1_Base_Color.jpg
+	map_Kd tree_stem1_Base_Color.jpg
+	map_bump file6_Normal Bump.tga
+
+newmtl dark_green_leaf
+	Ns 26.5805
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.1039 0.1039 0.1039
+	Ke 0.0000 0.0000 0.0000
+	map_Ka leave-4.png
+	map_Kd leave-4.png
+	map_d dark green leaf alpha.jpg
+
+newmtl light_green_leaf
+	Ns 26.5805
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.8000 0.8000 0.8000
+	Ks 0.1299 0.1299 0.1299
+	Ke 0.0000 0.0000 0.0000
+	map_Ka Leave 00 back colour.png
+	map_Kd Leave 00 back colour.png
+	map_d light green leaf alpha.jpg
