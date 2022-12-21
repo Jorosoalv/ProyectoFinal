@@ -1,0 +1,17 @@
+# 3ds Max Wavefront OBJ Exporter v0.99 - (c)2007 guruware
+# File Created: 21.12.2022 10:06:51
+
+newmtl _20446_Sea_Turtle_v120446_Sea_Turtle
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.3219 0.3621 0.2839
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.7300
+	Pm 0.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.5000
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+	map_Kd 20446_Sea_Turtle_diff.jpg
