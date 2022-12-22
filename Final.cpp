@@ -82,15 +82,19 @@ float	movAuto_x = -140.0f,
 		movHuevo2 = 0.0f,
 		movPinguino_z = 0.0f,
 		movPinguino_y = 0.0f,
-		movPinguino_x=0.0f,
-		rotacionPinguino=0.0f,
+		movPinguino_x = 0.0f,
+		rotacionPinguino = 0.0f,
 		movPataIzquierda = 0.0f,
 		movPataDerecha = 0.0f,
-		pataDerechaX=0.0f,
-		pataIzquierdaX=0.0f,
-		tortuga_x=0.0f,
-		tortuga_y=0.0f,
-		tortuga_z=0.0f;
+		pataDerechaX = 0.0f,
+		pataIzquierdaX = 0.0f,
+		tortuga_x = 0.0f,
+		tortuga_y = 0.0f,
+		tortuga_z = 0.0f,
+		movPez1_x = 0.0f,
+		movPez2_x = 0.0f,
+		rotacionPez1 = 0.0f,
+		rotacionPez2 = 0.0f;
 bool	animacion = false,
 		recorrido1 = true,
 		recorrido2 = false,
@@ -140,6 +144,10 @@ bool	animacionTortuga2 = false,
 		estadoAnim5 = false,
 		estadoAleta3=true,
 		estadoAleta4=false;
+//animacion de peces
+bool	animacionPeces = true,
+		estadoPeces1 = true,
+		estadoPeces2 = false;
 float tiempo = 0.0f;
 float cambio = 0.0f;
 bool luz = true;
@@ -700,6 +708,28 @@ void animate(void)//anima a nuestros objetos realiza que tengan algun movimento
 			}
 		}
 	}
+	if (animacionPeces) {
+		if (estadoPeces1) {
+			movPez1_x -= 0.2f;
+			movPez2_x += 0.2f;
+			rotacionPez1 = 0.0f;
+			rotacionPez2 = 180.0f;
+			if (movPez1_x <= -134.5f) {
+				estadoPeces1 = false;
+				estadoPeces2 = true;
+			}
+		}
+		if (estadoPeces2) {
+			movPez1_x += 0.2f;
+			movPez2_x -= 0.2f;
+			rotacionPez1 = 180.0f;
+			rotacionPez2 = 0.0f;
+			if (movPez1_x >= 0.0f) {
+				estadoPeces1 = true;
+				estadoPeces2 = false;
+			}
+		}
+	}
 }
 
 void getResolution()
@@ -817,7 +847,7 @@ int main()
 	// load models modelo estatico, formato obj que es la que mejor le da el soporte
 	// -----------
 	//Animales
-	//Model FishUno("resources/objects/FishUno/FishUno.obj"); 
+	Model FishUno("resources/objects/FishUno/FishUno.obj"); 
 	Model Cangrejo("resources/objects/crab/crabs.obj");
 	//Objetos
 	//escenario
@@ -973,7 +1003,20 @@ int main()
 		staticShader.use();
 		staticShader.setMat4("projection", projection);
 		staticShader.setMat4("view", view);
+		//-------------------------------------------------------------------------------------------------------
+		//Peces básicos
+		//-------------------------------------------------------------------------------------------------------
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPez1_x+20.5f, 12.5f, 170.0f));
+		model = glm::rotate(model, glm::radians(rotacionPez1), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		FishUno.Draw(staticShader);
 
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPez2_x-114.0f, 7.0f, 192.0f));
+		model = glm::rotate(model, glm::radians(rotacionPez2), glm::vec3(0.0f, 1.0f, 0.0));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		FishUno.Draw(staticShader);
 		//-------------------------------------------------------------------------------------------------------
 		//Tortuga
 		//-------------------------------------------------------------------------------------------------------
