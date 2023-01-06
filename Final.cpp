@@ -1783,6 +1783,7 @@ void my_input(GLFWwindow* window, int key, int scancode, int action, int mode)
 		CuerpoTiburonZ = 0.0f;
 		GiroTiburon = 0.0f;
 		GiroTiburon2 = 0.0f;
+		animacionTibu = 0;
 		//Reset Luces
 		animacionLuces = false;
 		RGB1 = true;
