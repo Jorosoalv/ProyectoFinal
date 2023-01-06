@@ -1120,6 +1120,7 @@ int main()
 	Model PezGlobo("resources/objects/PezGlobo/PezGlobo.obj");
 	Model PezGlobo2("resources/objects/PezGlobo2/PezGlobo2.obj");
 	Model Naranja("resources/objects/Naranja/Naranja.obj");
+	Model leonMarino("resources/objects/leonMarino/leonMarino.obj");
 	//Objetos
 	//escenario
 	Model acuario("resources/objects/Acuario/acuario.obj"); // este es el piso del escenario
@@ -1370,6 +1371,10 @@ int main()
 		staticShader.setMat4("model", model);
 		PezGlobo2.Draw(staticShader);
 
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		leonMarino.Draw(staticShader);
 		//-----------------------------------------------------------------------------------------------------
 		//Tiburon
 		//-----------------------------------------------------------------------------------------------------
