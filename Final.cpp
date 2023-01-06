@@ -86,6 +86,15 @@ movPinguino_x = 0.0f,
 rotacionPinguino = 0.0f,
 movPataIzquierda = 0.0f,
 movPataDerecha = 0.0f,
+AletaTibuDer = 0.0f,
+AletaSup = 0.0f,
+ColaTiburon1 = 0.0f,
+ParteTraseraTibu = 0.0f,
+CuerpoTiburonX = 0.0f,
+CuerpoTiburonY = 0.0f,
+CuerpoTiburonZ = 0.0f,
+GiroTiburon = 0.0f,
+GiroTiburon2 = 0.0f,
 pataDerechaX = 0.0f,
 pataIzquierdaX = 0.0f,
 tortuga_x = 0.0f,
@@ -198,7 +207,10 @@ rotAletaIzqINC = 0.0f,
 rotAletaDerINC = 0.0f,
 MovBracitoIzqINC = 0.0f,
 MovBracitoDerINC = 0.0f;
-
+//banderas tiburon
+bool animacionTiburon = false;
+int animacionTibu = 0,
+aleteo = 0;
 #define MAX_FRAMES 30
 int i_max_steps = 45;
 int i_curr_steps = 0;
@@ -369,7 +381,7 @@ void animate(void)//anima a nuestros objetos realiza que tengan algun movimento
 		}
 	}
 	llanta -= 3.5f;
-	
+
 	//Vehículo
 	if (animacion) {
 		if (movimiento == 0)
@@ -727,7 +739,7 @@ void animate(void)//anima a nuestros objetos realiza que tengan algun movimento
 				estadoPeces1 = false;
 				estadoPeces2 = true;
 			}
-			
+
 		}
 		if (estadoPeces2) {
 			movPez1_x += 0.2f;
@@ -757,6 +769,224 @@ void animate(void)//anima a nuestros objetos realiza que tengan algun movimento
 			}
 		}
 	}
+
+	if (animacionTiburon) {
+
+		if (animacionTibu == 0) {
+			//std::cout << "Entre a la animación tiburon" << std::endl;
+			if (CuerpoTiburonY <= 10.0f) {
+				CuerpoTiburonY += 0.8f;
+				if (CuerpoTiburonX <= 40) {
+					CuerpoTiburonX += 0.8f;
+				}//if (CuerpoTiburonZ <= 50) {
+					//CuerpoTiburonZ += 3.0f;
+
+			//	}
+				if (GiroTiburon2 >= -28) {
+					GiroTiburon2 -= 1.0f;
+				}
+				if (aleteo == 0) {
+					AletaTibuDer += 0.3f;
+					AletaSup += 0.3f;
+					ColaTiburon1 += 0.3f;
+					ParteTraseraTibu += 0.3;
+					if (AletaTibuDer >= 6.0f) {
+						aleteo = 1;
+					}
+				}
+				else if (aleteo == 1) {
+					AletaTibuDer -= 0.3f;
+					AletaSup -= 0.3f;
+					ColaTiburon1 -= 0.2f;
+					ParteTraseraTibu -= 0.3;
+					if (AletaTibuDer <= -6.0f) {
+						aleteo = 0;
+					}
+				}
+			}
+			else {
+				animacionTibu = 1;
+			}
+		}
+		else if (animacionTibu == 1) {
+			if (CuerpoTiburonY >= 1.0f) {
+				CuerpoTiburonY -= 0.4f;
+				if (CuerpoTiburonX <= 80) {
+					CuerpoTiburonX += 1.0f;
+				}if (CuerpoTiburonZ >= -10) {
+					CuerpoTiburonZ -= 3.0f;
+
+				}//if (GiroTiburon >= -180) {
+					//GiroTiburon -= 8.0f;
+			//	}
+				if (GiroTiburon2 <= 28) {
+					GiroTiburon2 += 1.0f;
+				}
+				if (aleteo == 0) {
+					AletaTibuDer += 0.3f;
+					AletaSup += 0.3f;
+					ColaTiburon1 += 0.3f;
+					ParteTraseraTibu += 0.3;
+					if (AletaTibuDer >= 6.0f) {
+						aleteo = 1;
+					}
+				}
+				else if (aleteo == 1) {
+					AletaTibuDer -= 0.3f;
+					AletaSup -= 0.3f;
+					ColaTiburon1 -= 0.2f;
+					ParteTraseraTibu -= 0.3;
+					if (AletaTibuDer <= -6.0f) {
+						aleteo = 0;
+					}
+				}
+
+
+			}
+			else {
+				animacionTibu = 2;
+			}
+		}
+		else if (animacionTibu == 2) {
+			if (CuerpoTiburonY <= 8.0f) {
+				CuerpoTiburonY += 0.5f;
+				if (CuerpoTiburonX <= 100) {
+					CuerpoTiburonX += 1.0f;
+				}if (CuerpoTiburonZ <= 0) {
+					CuerpoTiburonZ += 1.0f;
+				}
+				if (GiroTiburon2 >= 0) {
+					GiroTiburon2 -= 1.0f;
+				}
+				if (aleteo == 0) {
+					AletaTibuDer += 0.3f;
+					AletaSup += 0.3f;
+					ColaTiburon1 += 0.3f;
+					ParteTraseraTibu += 0.3;
+					if (AletaTibuDer >= 6.0f) {
+						aleteo = 1;
+					}
+				}
+				else if (aleteo == 1) {
+					AletaTibuDer -= 0.3f;
+					AletaSup -= 0.3f;
+					ColaTiburon1 -= 0.2f;
+					ParteTraseraTibu -= 0.3;
+					if (AletaTibuDer <= -6.0f) {
+						aleteo = 0;
+					}
+				}
+			}
+
+			else {
+				animacionTibu = 3;
+			}
+		}
+
+
+
+
+		else if (animacionTibu == 3) {
+			if (GiroTiburon >= -180) {
+				GiroTiburon -= 9.0f;
+			}
+			else {
+				animacionTibu = 4;
+			}
+			if (aleteo == 0) {
+				AletaTibuDer += 0.3f;
+				AletaSup += 0.3f;
+				ColaTiburon1 += 0.3f;
+				ParteTraseraTibu += 0.3;
+				if (AletaTibuDer >= 6.0f) {
+					aleteo = 1;
+				}
+			}
+			else if (aleteo == 1) {
+				AletaTibuDer -= 0.3f;
+				AletaSup -= 0.3f;
+				ColaTiburon1 -= 0.2f;
+				ParteTraseraTibu -= 0.3;
+				if (AletaTibuDer <= -6.0f) {
+					aleteo = 0;
+				}
+			}
+		}
+		else if (animacionTibu == 4) {
+			if (CuerpoTiburonX >= -0) {
+				CuerpoTiburonX -= 2.0f;
+				if (aleteo == 0) {
+					AletaTibuDer += 0.3f;
+					AletaSup += 0.3f;
+					ColaTiburon1 += 0.8f;
+					ParteTraseraTibu += 0.3;
+					if (AletaTibuDer >= 6.0f) {
+						aleteo = 1;
+					}
+				}
+				else if (aleteo == 1) {
+					AletaTibuDer -= 0.3f;
+					AletaSup -= 0.3f;
+					ColaTiburon1 -= 0.8f;
+					ParteTraseraTibu -= 0.3;
+					if (AletaTibuDer <= -6.0f) {
+						aleteo = 0;
+					}
+				}
+			}
+			else {
+				animacionTibu = 5;
+			}
+
+		}
+		else if (animacionTibu == 5) {
+			if (GiroTiburon <= 0) {
+				GiroTiburon += 9.0f;
+
+				if (aleteo == 0) {
+					AletaTibuDer += 0.3f;
+					AletaSup += 0.3f;
+					ColaTiburon1 += 0.8f;
+					ParteTraseraTibu += 0.3;
+					if (AletaTibuDer >= 6.0f) {
+						aleteo = 1;
+					}
+				}
+				else if (aleteo == 1) {
+					AletaTibuDer -= 0.3f;
+					AletaSup -= 0.3f;
+					ColaTiburon1 -= 0.8f;
+					ParteTraseraTibu -= 0.3;
+					if (AletaTibuDer <= -6.0f) {
+						aleteo = 0;
+					}
+				}
+
+			}
+			if (aleteo == 0) {
+				AletaTibuDer += 0.3f;
+				AletaSup += 0.3f;
+				ColaTiburon1 += 0.8f;
+				ParteTraseraTibu += 0.3;
+				if (AletaTibuDer >= 6.0f) {
+					aleteo = 1;
+				}
+			}
+			else if (aleteo == 1) {
+				AletaTibuDer -= 0.3f;
+				AletaSup -= 0.3f;
+				ColaTiburon1 -= 0.8f;
+				ParteTraseraTibu -= 0.3;
+				if (AletaTibuDer <= -6.0f) {
+					aleteo = 0;
+				}
+			}
+
+		}
+
+	}
+
+
 	//Movimiento de peces.
 	rotacionPez3 += 2.0f;
 	rotacionPez4 -= 1.0f;
@@ -923,6 +1153,14 @@ int main()
 	Model huevoRoto2("resources/objects/Huevo2/huevoRoto.obj"); //cascara del huevo pequeña que se mueve 2
 	Model tortugaHuevo2("resources/objects/Huevo2/Tortuga.obj"); //tortuga dentro del huevo 2
 
+	//ModeloTiburon
+	Model AletaDerTiburon("resources/objects/Tiburon2/AletaDer.obj");
+	Model AletaIzqTiburon("resources/objects/Tiburon2/AletaIzq.obj");
+	Model AletaSupTiburon("resources/objects/Tiburon2/AletaSup.obj");
+	Model ColaTiburon("resources/objects/Tiburon2/ColaTiburon.obj");
+	Model CuerpoTiburon("resources/objects/Tiburon2/CuerpoTiburon.obj");
+	Model CuerpoTraseroTiburon("resources/objects/Tiburon2/ParteTraseraTiburon.obj");
+
 	//pinguino modelado por KeyFrames
 	Model AletaDer("resources/objects/Pingu/AletaDerecha.obj");
 	Model AletaIzq("resources/objects/Pingu/AletaIzquierda.obj");
@@ -1009,7 +1247,8 @@ int main()
 		glm::mat4 huevotemp2 = glm::mat4(1.0f);
 		glm::mat4 origen = glm::mat4(1.0f);
 		glm::mat4 pinguino = glm::mat4(1.0f);
-
+		glm::mat4 tmp2 = glm::mat4(1.0f);
+		glm::mat4 tmp3 = glm::mat4(1.0f);
 		// view/projection transformations
 		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 1000000.0f);
 		glm::mat4 view = camera.GetViewMatrix();
@@ -1130,8 +1369,57 @@ int main()
 		model = glm::scale(model, glm::vec3(0.2f));
 		staticShader.setMat4("model", model);
 		PezGlobo2.Draw(staticShader);
-		
 
+		//-----------------------------------------------------------------------------------------------------
+		//Tiburon
+		//-----------------------------------------------------------------------------------------------------
+		//Cuerpo
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-70.0f, 0.0f, 180.0f));
+		model = glm::translate(model, glm::vec3(CuerpoTiburonX, CuerpoTiburonY, CuerpoTiburonZ));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(GiroTiburon), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(GiroTiburon2), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
+		tmp2 = model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 0.0f, 1.0));
+		staticShader.setMat4("model", model);
+		CuerpoTiburon.Draw(staticShader);
+
+		//AletaDerechaTiburon
+		model = glm::translate(tmp2, glm::vec3(-0.0f, 0.0f, -0.0f));
+		model = glm::translate(model, glm::vec3(-5.2f, 15.4f, 3.5f));
+		model = glm::rotate(model, glm::radians(AletaTibuDer), glm::vec3(0.0f, 0.0f, 1.0));
+		//model = glm::rotate(model, glm::radians(-rotAletaIzq), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		AletaDerTiburon.Draw(staticShader);
+
+		//AletaIzquierdaTiburon
+		model = glm::translate(tmp2, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(6.0f, 15.0f, 2.4f));
+		model = glm::rotate(model, glm::radians(-AletaTibuDer), glm::vec3(0.0f, 0.0f, 1.0));
+		//model = glm::rotate(model, glm::radians(-rotAletaDer), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		AletaIzqTiburon.Draw(staticShader);
+
+		//AletaSupTiburon
+		model = glm::translate(tmp2, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(0.0f, 23.9f, 0));
+		model = glm::rotate(model, glm::radians(AletaSup), glm::vec3(0.0f, 0.0f, 1.0f));
+		staticShader.setMat4("model", model);
+		AletaSupTiburon.Draw(staticShader);
+
+		//CuerpoTraseroTiburon
+		model = glm::translate(tmp2, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(0.0f, 18.2f, -11.6f));
+		tmp3 = model = glm::rotate(model, glm::radians(ParteTraseraTibu), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		CuerpoTraseroTiburon.Draw(staticShader);
+
+		//ColaTiburon
+		model = glm::translate(tmp3, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(7.2f, -4.5f, -14.0f));
+		model = glm::rotate(model, glm::radians(ColaTiburon1), glm::vec3(0.0f, 1.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		ColaTiburon.Draw(staticShader);
 
 		//-------------------------------------------------------------------------------------------------------
 		//Tortuga
@@ -1448,6 +1736,10 @@ void my_input(GLFWwindow* window, int key, int scancode, int action, int mode)
 	if (key == GLFW_KEY_1 && action == GLFW_PRESS) {
 		animacion ^= true;
 	}
+	if (glfwGetKey(window, GLFW_KEY_8) == GLFW_PRESS)
+		animacionTiburon ^= true;
+
+
 	//Tortuga que sale de su huevo y se esconde
 	if (key == GLFW_KEY_5 && action == GLFW_PRESS)
 		animacionTortuga2 ^= true;
@@ -1474,6 +1766,18 @@ void my_input(GLFWwindow* window, int key, int scancode, int action, int mode)
 		movHuevo = 0.0f;
 		rotacionHuevo = 0.0f;
 		animacionHuevo = false;
+
+		//Reset Tiburon
+		animacionTiburon = false;
+		AletaTibuDer = 0.0f;
+		AletaSup = 0.0f;
+		ColaTiburon1 = 0.0f;
+		ParteTraseraTibu = 0.0f;
+		CuerpoTiburonX = 0.0f;
+		CuerpoTiburonY = 0.0f;
+		CuerpoTiburonZ = 0.0f;
+		GiroTiburon = 0.0f;
+		GiroTiburon2 = 0.0f;
 		//Reset Luces
 		animacionLuces = false;
 		RGB1 = true;
