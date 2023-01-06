@@ -1,0 +1,17 @@
+# 3ds Max Wavefront OBJ Exporter v0.99 - (c)2007 guruware
+# File Created: 03.01.2023 16:00:42
+
+newmtl 10041_SeaLion_v1
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.2520 0.2520 0.2520
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.7400
+	Pm 0.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.5000
+	Ke 0.1765 0.1765 0.1765
+	illum 2
+	map_Kd 10041_sealion_v1_Diffuse.jpg
